@@ -3,8 +3,9 @@
 DROP TABLE IF EXISTS contacts;
 DROP TABLE IF EXISTS activities;
 DROP TABLE IF EXISTS companies;
-DROP TABLE IF EXISTS my_contacts;
-DROP TABLE IF EXISTS enrollments;
+DROP TABLE IF EXISTS my_details;
+DROP TABLE IF EXISTS company_contacts;
+DROP TABLE IF EXISTS my_activities;
 
 -- CREATE TABLES
 
@@ -14,14 +15,16 @@ CREATE TABLE contacts (
    id INTEGER PRIMARY KEY AUTOINCREMENT,
    contact_name TEXT,
    email_address TEXT,
-   phone_number TEXT
+   phone_number TEXT,
+   companies_id INTEGER
 );
 
 CREATE TABLE activities (
      id INTEGER PRIMARY KEY AUTOINCREMENT,
      contact_type TEXT,
-     contact_date DATE,
-     contact_time TIME
+     created_at TEXT,
+     salesperson_id INTEGER,
+     contact_id INTEGER
 );
 
 CREATE TABLE companies (
@@ -29,7 +32,7 @@ CREATE TABLE companies (
      company_name TEXT
 );
 
-CREATE TABLE my_contacts (
+CREATE TABLE my_details (
      id INTEGER PRIMARY KEY AUTOINCREMENT,
      first_name TEXT,
      last_name TEXT,
